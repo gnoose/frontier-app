@@ -28,6 +28,19 @@ export function doPut<T>(url: string, payload: any): Promise<T> {
 }
 
 /**
+ * Request URL data with Delete method
+ * @param url
+ * @param payload
+ *
+ * @return
+ *    resolves response object
+ *    rejects { statusCode: "number", message: "string" }
+ */
+export function doDelete<T>(url: string, payload: any): Promise<T> {
+  return doFetch<T>(url, 'DELETE', payload);
+}
+
+/**
  * Request URL data with GET method
  * @param url
  *

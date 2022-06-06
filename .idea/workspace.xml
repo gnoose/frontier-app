@@ -2,36 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbb5356e-3c5d-4238-b164-6f38f4c364b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/core/api-services/http.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/core/api-services/token.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/core/types/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/core/types/token.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/core/types/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/error-page/404.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/error-page/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/layout/footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/layout/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/layout/navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui-kit/common/spinner.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui-kit/dialog/alert-dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui-kit/dialog/dialog-context.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui-kit/dialog/dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui-kit/dialog/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui-kit/dialog/use-alert.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui-kit/icon/icons.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui-kit/icon/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/404.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/logo-green.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/why-us/education.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/why-us/secure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/why-us/skin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Home.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/add-token.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/token.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/update-token.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/core/api-services/http.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/api-services/http.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/core/api-services/token.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/api-services/token.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/core/types/token.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/types/token.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -66,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/franglin/projects/frontier/frontier-app/public/assets/images",
+    "last_opened_file_path": "/home/franglin/projects/frontier/frontier-app/pages",
     "list.type.of.created.stylesheet": "CSS",
     "nodejs_package_manager_path": "yarn",
     "vue.rearranger.settings.migration": "true"
@@ -74,6 +54,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/public/assets/images" />
       <recent name="$PROJECT_DIR$/pages/components/ui-kit" />
       <recent name="$PROJECT_DIR$/pages/components/layout" />
@@ -90,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1654539629624</updated>
-      <workItem from="1654539631189" duration="4980000" />
+      <workItem from="1654539631189" duration="15844000" />
     </task>
     <servers />
   </component>

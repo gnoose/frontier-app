@@ -1,21 +1,21 @@
-// import {doPost, doPut} from './http';
-// import {UserInfo} from '../types/auth';
-// import {UserUpdateRequest} from '../types/user';
-//
-// export const TokenService = {
-//   updateUser: (userId: string, body: UserUpdateRequest): Promise<UserInfo> => {
-//     return doPut(`/users/${userId}`, body);
-//   },
-//   createAccount: (): Promise<UserInfo> => {
-//     return doPost('/users/create-account', {});
-//   },
-//   createStakeAccount: (): Promise<UserInfo> => {
-//     return doPost('/users/create-stake-account', {});
-//   },
-//   stake: (stakeAmount: number): Promise<UserInfo> => {
-//     return doPost('/users/stake', {amount: stakeAmount});
-//   },
-//   withdraw: (withdrawAmount: number): Promise<UserInfo> => {
-//     return doPost('/users/withdraw', {amount: withdrawAmount});
-//   }
-// };
+import { doGet, doPost, doPut, doDelete } from './http';
+
+import { TokenDeleteRequest, TokenRegisterRequest, TokenResponse, TokenUpdateRequest } from '../types/token';
+
+export const TokenService = {
+  createToken: (dto: TokenRegisterRequest): Promise<TokenResponse> => {
+    return doPost('/token', { ...dto });
+  },
+  getTokens: (): Promise<TokenResponse[]> => {
+    return doGet('/token');
+  },
+  getToken: (tokenId: string): Promise<TokenResponse> => {
+    return doGet(`/token/${tokenId}`);
+  },
+  deleteToken: (dto: TokenDeleteRequest): Promise<TokenResponse> => {
+    return doDelete('/token', { ...dto });
+  },
+  updateToken: (dto: TokenUpdateRequest): Promise<TokenResponse> => {
+    return doPut('/token', { ...dto });
+  },
+};

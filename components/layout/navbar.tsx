@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <nav className="h-80 bg-secondary z-10 flex px-15 sticky text-white filter drop-shadow-lg">
       <div className="container px-0 mx-auto flex justify-between xl:justify-start">
-        <Link href="/pages"><a className="flex items-center"><Image src="/assets/images/logo.svg" height={38} width={130}
+        <Link href="/"><a className="flex items-center"><Image src="/assets/images/logo.svg" height={38} width={130}
                                                                     alt="Skatin logo"/></a></Link>
         <button className="xl:hidden px-10" onClick={() => setNavbarOpen(!navbarOpen)}><Icon name="menu" color="white"
                                                                                              size={27}/></button>
@@ -30,7 +30,7 @@ export default function Navbar() {
           (navbarOpen ? " left-0 ease-out-in" : " -left-800 xl:left-0 ease-in-out")
         }>
           <div className="flex w-full xl:hidden justify-between py-30">
-            <Link href="/pages"><a className="flex xl:hidden items-center"><Image src="/assets/images/logo.svg" height={44}
+            <Link href="/"><a className="flex xl:hidden items-center"><Image src="/assets/images/logo.svg" height={44}
                                                                                   width={152} alt="Frontier logo"/></a></Link>
             <button className="px-10" onClick={() => setNavbarOpen(false)}><Icon name="close" color="white" size={25}/>
             </button>
@@ -47,7 +47,7 @@ export default function Navbar() {
             {navbarOpen && !isLogin && <li className="py-15 nav-link"><Link href="/login"><a
                 className="relative xl:px-25 xl:py-10">Login</a></Link></li>}
             {navbarOpen && isLogin &&
-            <li className="py-15 nav-link"><Link href="/pages"><a className="relative xl:px-25 xl:py-10"
+            <li className="py-15 nav-link"><Link href="/"><a className="relative xl:px-25 xl:py-10"
                                                                   onClick={logout}>Logout</a></Link></li>}
             {navbarOpen && <li className="py-15 nav-link"><Link href="/signup"><a
                 className="relative xl:px-25 xl:py-10">SignUp</a></Link></li>}
@@ -56,7 +56,7 @@ export default function Navbar() {
             {!isLogin && <Link href="/login" passHref>
                 <button className="btn-warning btn-mini mr-10">Login</button>
             </Link>}
-            {isLogin && <Link href="/pages" passHref>
+            {isLogin && <Link href="/" passHref>
                 <button className="btn-warning btn-mini mr-10" onClick={logout}>logout</button>
             </Link>}
             <Link href="/signup" passHref>

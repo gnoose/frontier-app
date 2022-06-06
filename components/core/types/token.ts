@@ -5,6 +5,12 @@ export interface TokenUpdateRequest {
   image_url: string;
 }
 
+export interface TokenRegisterRequest {
+  title: string;
+  description: string;
+  image_url: string;
+}
+
 export interface TokenDeleteRequest {
   id: string;
 }
