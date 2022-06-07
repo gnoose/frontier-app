@@ -3,7 +3,7 @@ import { JsonRpcProvider, StaticJsonRpcProvider, Web3Provider } from '@etherspro
 import Web3Modal from 'web3modal';
 
 import { ExtensionType, netInfo } from '../core/data/base';
-let web3Accounts, web3Enable;
+let web3Accounts: any, web3Enable: any;
 if (typeof window !== 'undefined') {
   const dapp = require('@polkadot/extension-dapp');
   web3Accounts = dapp.web3Accounts;
@@ -87,7 +87,7 @@ export function AppProvider({children}: Props) {
   // ... so I changed these listeners so that they only apply to walletProviders, eliminating
   // ... polling to the backend providers for network changes
   const _initListeners = useCallback(
-    rawProvider => {
+    (rawProvider: any) => {
       if (!rawProvider.on) {
         return;
       }
@@ -128,7 +128,7 @@ export function AppProvider({children}: Props) {
         //   TODO: add polkadot provider setting
         }
       } catch (ex) {
-        console.log('ex = ', ex.message);
+        console.log('ex = ', ex);
       }
     }
   }, []);

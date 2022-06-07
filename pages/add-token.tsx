@@ -13,7 +13,7 @@ const AddToken: NextPage = () => {
 
   const alertService = useAlert();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     const data = {
@@ -26,7 +26,7 @@ const AddToken: NextPage = () => {
       setIsLoading(true);
       await TokenService.createToken(data);
       Router.push('/token');
-    } catch (ex) {
+    } catch (ex: any) {
       await alertService.notify('Request Failed', ex.message || 'Request failed. Please try again.', 'Ok');
     } finally {
       setIsLoading(false);

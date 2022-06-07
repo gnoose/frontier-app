@@ -4,6 +4,7 @@ import {DialogProvider} from '../components/ui-kit/dialog/dialog-context';
 import { AppProvider } from '../components/context/app-context';
 import '../styles/globals.css'
 import '../styles/layout.css';
+import ErrorPage from '../components/error-page';
 
 function MyApp({ Component, pageProps }: AppProps) {
 

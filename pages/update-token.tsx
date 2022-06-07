@@ -27,7 +27,7 @@ const UpdateToken: NextPage = () => {
         setTitle(info.title);
         setDescription(info.description);
         setImageURL(info.image_url);
-      }).catch(async (ex) => {
+      }).catch(async (ex: any) => {
         await alertService.notify('Request Failed', ex.message || 'Request failed. Please try again.', 'Ok');
       }).finally(() => {
         setIsLoading(false);
@@ -39,19 +39,19 @@ const UpdateToken: NextPage = () => {
     getToken();
   }, [tokenId]);
 
-  const handleTitle = (event) => {
+  const handleTitle = (event: any) => {
     setTitle(event.target.value);
   };
 
-  const handleDescription = (event) => {
+  const handleDescription = (event: any) => {
     setDescription(event.target.value);
   };
 
-  const handleImageURL = (event) => {
+  const handleImageURL = (event: any) => {
     setImageURL(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     const data = {
@@ -65,7 +65,7 @@ const UpdateToken: NextPage = () => {
       setIsLoading(true);
       await TokenService.updateToken(data);
       Router.push('/token');
-    } catch (ex) {
+    } catch (ex: any) {
       await alertService.notify('Request Failed', ex.message || 'Request failed. Please try again.', 'Ok');
     } finally {
       setIsLoading(false);
