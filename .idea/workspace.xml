@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbb5356e-3c5d-4238-b164-6f38f4c364b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/add-token.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/token.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/update-token.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="bbb5356e-3c5d-4238-b164-6f38f4c364b0" name="Changes" comment="feat/implement CRUD features&#10;* add token&#10;* delete token&#10;* update token&#10;* show tokens">
+      <change afterPath="$PROJECT_DIR$/public/assets/images/metamask.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/polkadot.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/core/api-services/http.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/api-services/http.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/core/api-services/token.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/api-services/token.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/core/types/token.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/core/types/token.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/token.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/token.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/franglin/projects/frontier/frontier-app/pages",
+    "last_opened_file_path": "/home/franglin/projects/frontier/frontier-app/public/assets/images",
     "list.type.of.created.stylesheet": "CSS",
     "nodejs_package_manager_path": "yarn",
     "vue.rearranger.settings.migration": "true"
@@ -54,8 +51,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/public/assets/images" />
+      <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/pages/components/ui-kit" />
       <recent name="$PROJECT_DIR$/pages/components/layout" />
     </key>
@@ -71,8 +68,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1654539629624</updated>
-      <workItem from="1654539631189" duration="15844000" />
+      <workItem from="1654539631189" duration="20762000" />
     </task>
+    <task id="LOCAL-00001" summary="feat/implement CRUD features&#10;* add token&#10;* delete token&#10;* update token&#10;* show tokens">
+      <created>1654556741850</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654556741850</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,5 +93,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat/implement CRUD features&#10;* add token&#10;* delete token&#10;* update token&#10;* show tokens" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat/implement CRUD features&#10;* add token&#10;* delete token&#10;* update token&#10;* show tokens" />
   </component>
 </project>

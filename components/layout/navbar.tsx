@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image'
 
@@ -7,11 +7,36 @@ import Icon from '../ui-kit/icon';
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [showConnectModal, setShowConnectModal] = useState(true);
+  const extensionRef = useRef<HTMLDivElement>(null);
+
+  const connected = false;
+
+  const connectWallet = useCallback(async () => {
+    if (!connected) {
+      setShowConnectModal(true);
+    } else {
+      // onDisconnect();
+    }
+  }, [connected]);
 
   useEffect(() => {
     if (localStorage.getItem('authToken')) {
       setIsLogin(true);
     }
+
+    function handleClickOutside(event: any) {
+      if (extensionRef.current && !extensionRef.current.contains(event.target)) {
+        setShowConnectModal(false);
+      }
+    }
+
+    // Bind the event listener
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   const logout = () => {
@@ -44,24 +69,37 @@ export default function Navbar() {
               className="relative xl:px-25 xl:py-10">Current Customers</a></Link></li>
             <li className="py-15 nav-link"><Link href="/blog"><a className="relative xl:px-25 xl:py-10">Blog</a></Link>
             </li>
-            {navbarOpen && !isLogin && <li className="py-15 nav-link"><Link href="/login"><a
-                className="relative xl:px-25 xl:py-10">Login</a></Link></li>}
+            {navbarOpen && !isLogin && <li className="py-15 nav-link"><a
+                className="relative xl:px-25 xl:py-10" onClick={connectWallet}>Connect</a></li>}
             {navbarOpen && isLogin &&
             <li className="py-15 nav-link"><Link href="/"><a className="relative xl:px-25 xl:py-10"
                                                                   onClick={logout}>Logout</a></Link></li>}
-            {navbarOpen && <li className="py-15 nav-link"><Link href="/signup"><a
-                className="relative xl:px-25 xl:py-10">SignUp</a></Link></li>}
           </ul>
           <div className="hidden xl:block flex items-center px-5">
-            {!isLogin && <Link href="/login" passHref>
-                <button className="btn-warning btn-mini mr-10">Login</button>
-            </Link>}
+            {!isLogin &&
+                <button onClick={connectWallet} className="btn-warning btn-mini mr-10">Connect</button>
+            }
             {isLogin && <Link href="/" passHref>
                 <button className="btn-warning btn-mini mr-10" onClick={logout}>logout</button>
             </Link>}
-            <Link href="/signup" passHref>
-              <button className="btn-primary btn-mini">SignUp</button>
-            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div ref={extensionRef}
+        className={'absolute flex justify-center top-0 left-0 bottom-0 right-0 bg-light-60 z-50 ' + (showConnectModal ? 'block' : 'hidden')}>
+        <div
+             className="flex flex-col sm:flex-row h-400 sm:h-200 mt-200 bg-secondary-100 rounded-xl p-40 border border cursor-pointer"
+             >
+          <div className="flex flex-col items-center h-200 w-200 hover:opacity-50">
+            <img src="/assets/images/metamask.svg" width={75} alt="MetaMask Logo"/>
+            <span className="text-white text-25 font-medium">Metamask</span>
+            <span className="text-warning text-12">Connect your metamask wallet</span>
+          </div>
+          <div className="flex flex-col items-center h-200 w-200 hover:opacity-50">
+            <img src="/assets/images/polkadot.svg" width={75} alt="Polkadot Logo"/>
+            <span className="text-white text-25 font-medium">Polkadot</span>
+            <span className="text-warning text-12">Connect your polkadot wallet</span>
           </div>
         </div>
       </div>

@@ -2,18 +2,34 @@ import type { NextPage } from 'next'
 import { useCallback, useEffect, useState } from 'react';
 import Head from 'next/head'
 import Router from 'next/router'
+import Link from 'next/link';
+import {
+  web3Accounts,
+  web3Enable,
+  web3FromAddress,
+  web3ListRpcProviders,
+  web3UseRpcProvider
+} from '@polkadot/extension-dapp';
 
 import Layout from '../components/layout/layout';
 import { TokenResponse } from '../components/core/types/token';
 import { TokenService } from '../components/core/api-services/token.service';
 import useAlert from '../components/ui-kit/dialog/use-alert';
 import Icon from '../components/ui-kit/icon';
-import Link from 'next/link';
 
 const Token: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [tokens, setTokens] = useState<TokenResponse[]>([]);
   const alertService = useAlert();
+
+  const polkadotConnect = async () => {
+    if (typeof window !== "undefined") {
+      const allInjected = await web3Enable('my cool dapp');
+      const allAccounts = await web3Accounts();
+      console.log('allInjected = ', allInjected);
+      console.log('allAccounts = ', allAccounts);
+    }
+  };
 
   const handleNewTokenButton = useCallback(() => {
     Router.push('/add-token');
@@ -43,6 +59,7 @@ const Token: NextPage = () => {
 
   useEffect(() => {
     getTokenList();
+    polkadotConnect();
   }, []);
 
   return (
@@ -64,7 +81,7 @@ const Token: NextPage = () => {
                   <p className="text-16 py-5 px-20 text-light-300 text-ellipsis overflow-hidden text-justify">{item.description}</p>
                   <div className="absolute top-0 left-0 w-full h-full bg-light-100 opacity-0 hover:opacity-90 flex justify-center items-center">
                     <div>
-                      <Link href={{ pathname: '/update-token', query: { id: item.id }}}><span className="cursor-pointer mr-20"><Icon name="edit" size={30} /></span></Link>
+                      <Link href={{ pathname: '/update-token', query: { id: item.id }}} passHref><span className="cursor-pointer mr-20"><Icon name="edit" size={30} /></span></Link>
                       <span onClick={() => deleteToken(item.id)} className="cursor-pointer"><Icon name="trash" size={30} /></span>
                     </div>
                   </div>
