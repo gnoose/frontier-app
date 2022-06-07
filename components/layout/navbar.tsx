@@ -1,30 +1,46 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image'
+import Router from 'next/router';
 
+import { AppContext } from '../context/app-context';
 import Icon from '../ui-kit/icon';
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
-  const [showConnectModal, setShowConnectModal] = useState(true);
+  const [showConnectModal, setShowConnectModal] = useState(false);
+  const {connected, wallet, connect, connectPolkadot, disconnect} = useContext(AppContext);
   const extensionRef = useRef<HTMLDivElement>(null);
 
-  const connected = false;
+  const onConnect = useCallback(async () => {
+    connect();
+    setShowConnectModal(false);
+    Router.push('/token');
+  }, []);
+
+  const onConnectPolkadot = useCallback(async () => {
+    connectPolkadot();
+    setShowConnectModal(false);
+    Router.push('/token');
+  }, []);
 
   const connectWallet = useCallback(async () => {
     if (!connected) {
       setShowConnectModal(true);
     } else {
-      // onDisconnect();
+      onDisconnect();
     }
   }, [connected]);
 
-  useEffect(() => {
-    if (localStorage.getItem('authToken')) {
-      setIsLogin(true);
-    }
+  const onDisconnect = useCallback(() => {
+    disconnect();
+  }, []);
 
+  const shortenTxHash = useCallback((txHash: any) => {
+    return txHash.substr(0, 6) + '...' + txHash.substr(txHash.length - 4);
+  }, []);
+
+  useEffect(() => {
     function handleClickOutside(event: any) {
       if (extensionRef.current && !extensionRef.current.contains(event.target)) {
         setShowConnectModal(false);
@@ -69,19 +85,11 @@ export default function Navbar() {
               className="relative xl:px-25 xl:py-10">Current Customers</a></Link></li>
             <li className="py-15 nav-link"><Link href="/blog"><a className="relative xl:px-25 xl:py-10">Blog</a></Link>
             </li>
-            {navbarOpen && !isLogin && <li className="py-15 nav-link"><a
-                className="relative xl:px-25 xl:py-10" onClick={connectWallet}>Connect</a></li>}
-            {navbarOpen && isLogin &&
-            <li className="py-15 nav-link"><Link href="/"><a className="relative xl:px-25 xl:py-10"
-                                                                  onClick={logout}>Logout</a></Link></li>}
+            {navbarOpen && <li className="py-15 nav-link cursor-pointer"><a
+                className="relative xl:px-25 xl:py-10" onClick={connectWallet}>{connected ? shortenTxHash(wallet) : 'Connect'}</a></li>}
           </ul>
           <div className="hidden xl:block flex items-center px-5">
-            {!isLogin &&
-                <button onClick={connectWallet} className="btn-warning btn-mini mr-10">Connect</button>
-            }
-            {isLogin && <Link href="/" passHref>
-                <button className="btn-warning btn-mini mr-10" onClick={logout}>logout</button>
-            </Link>}
+              <button onClick={connectWallet} className="btn-warning btn-mini mr-10">{connected ? shortenTxHash(wallet) : 'Connect'}</button>
           </div>
         </div>
       </div>
@@ -91,12 +99,12 @@ export default function Navbar() {
         <div
              className="flex flex-col sm:flex-row h-400 sm:h-200 mt-200 bg-secondary-100 rounded-xl p-40 border border cursor-pointer"
              >
-          <div className="flex flex-col items-center h-200 w-200 hover:opacity-50">
+          <div className="flex flex-col items-center h-200 w-200 hover:opacity-50" onClick={() => onConnect()}>
             <img src="/assets/images/metamask.svg" width={75} alt="MetaMask Logo"/>
             <span className="text-white text-25 font-medium">Metamask</span>
             <span className="text-warning text-12">Connect your metamask wallet</span>
           </div>
-          <div className="flex flex-col items-center h-200 w-200 hover:opacity-50">
+          <div className="flex flex-col items-center h-200 w-200 hover:opacity-50" onClick={() => onConnectPolkadot()}>
             <img src="/assets/images/polkadot.svg" width={75} alt="Polkadot Logo"/>
             <span className="text-white text-25 font-medium">Polkadot</span>
             <span className="text-warning text-12">Connect your polkadot wallet</span>

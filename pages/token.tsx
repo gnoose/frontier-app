@@ -3,13 +3,6 @@ import { useCallback, useEffect, useState } from 'react';
 import Head from 'next/head'
 import Router from 'next/router'
 import Link from 'next/link';
-import {
-  web3Accounts,
-  web3Enable,
-  web3FromAddress,
-  web3ListRpcProviders,
-  web3UseRpcProvider
-} from '@polkadot/extension-dapp';
 
 import Layout from '../components/layout/layout';
 import { TokenResponse } from '../components/core/types/token';
@@ -21,15 +14,6 @@ const Token: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [tokens, setTokens] = useState<TokenResponse[]>([]);
   const alertService = useAlert();
-
-  const polkadotConnect = async () => {
-    if (typeof window !== "undefined") {
-      const allInjected = await web3Enable('my cool dapp');
-      const allAccounts = await web3Accounts();
-      console.log('allInjected = ', allInjected);
-      console.log('allAccounts = ', allAccounts);
-    }
-  };
 
   const handleNewTokenButton = useCallback(() => {
     Router.push('/add-token');
@@ -59,7 +43,6 @@ const Token: NextPage = () => {
 
   useEffect(() => {
     getTokenList();
-    polkadotConnect();
   }, []);
 
   return (

@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ethersproject/providers": "^5.6.8",
     "@polkadot/extension-dapp": "^0.44.1",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-modal": "^3.15.1"
+    "react-modal": "^3.15.1",
+    "web3modal": "^1.9.7"
   },
   "devDependencies": {
     "@types/node": "17.0.40",
